@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --text-primary: #a131ca;
+    --text-black:#121212;
+    --text-grey: #999;
+    --text-white: #fff;
+
+    --bg-primary:#a131ca;
+    --bg-white:#fff;
+    --bg-opacity:#a131ca3d;
+    --bg-dark: #2f0040;
+}
+
+.bouton-primary,
+.bouton-secondary,
+.bouton-outline{
+    color: var(--text-white);
+    background-color: var(--bg-primary);
+    font-size: 1rem;
+    font-family: 'Heebo', sans-serif;
+    padding: .9rem 1.3rem;
+    margin: 1rem 0rem 1rem 0rem;
+    border-radius: 5px;
+    height: fit-content;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .3s ease-in-out;
+}
+.bouton-secondary{
+    background-color: var(--bg-dark);
+}
+.bouton-outline{
+    color: var(--text-black);
+    background-color: transparent;
+    border: 1px solid var(--bg-primary);
+}
+.bouton-outline:hover{
+    color: var(--text-white);
+    background-color: var(--bg-primary);
+}
+
+h1{
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--text-primary);
+    text-transform: capitalize;
+    font-family: 'Heebo', sans-serif;
+}
+h2{
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--text-black);
+    text-transform: capitalize;
+    font-family: 'Heebo', sans-serif;
+}
+span{
+    color: var(--text-black);
+}
+p{
+    letter-spacing: .1rem;
+    font-size: .9rem;
+    color: var(--text-grey);
+    line-height: 1.2;
+    transition: all .2s ease-in-out;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-opacity);
+    width: 100%;
+    font-family: 'Inter';
+}
+
+.section-primary{
+    background-color: var(--bg-white);
+    width: 87%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+.section-primary nav{
+    position: sticky;
+    width: 95%;
+    top: -1px;
+    display: flex;
+    flex-direction: row;
+    margin: 0px 20px;
+    padding: 0rem 1rem 0rem 1rem;
+    border: none;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--bg-white);
+    box-shadow: 0px 2px 12px var(--bg-opacity);
+    z-index: 9999;
+    transition: all .5s ease-in-out;
+    will-change: width;
+}
+
+.section-primary nav:hover{
+    /* border-bottom: 5px solid var(--bg-primary); */
+    scale: 96% 100%;
+}
+
+nav ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 3%;
+}
+nav .navigation,
+nav .logo{
+    text-transform: uppercase;
+    color: var(--text-black);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all .5s ease-in-out;
+}
+
+nav .logo{
+    display: flex;
+    justify-content: center;
+    text-transform: capitalize;
+    align-items: center;
+    gap:.5rem;
+    color: var(--text-primary);
+    font-weight: 900;
+    font-size: 2.3rem;
+    padding: 1rem;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+
+nav img{
+    filter: hue-rotate(90deg);
+    border-radius: 30px;
+    border: 1px dashed #31cab0;
+    padding: .5rem;
+    width: 48px;
+    height: 48px;
+}
+
+nav .navigation:hover{
+    color: var(--text-white);
+    background-color: var(--bg-primary);
+    border-radius: 5px;
+    padding: .6rem 1rem;
+}
