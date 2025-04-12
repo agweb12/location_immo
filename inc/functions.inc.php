@@ -49,6 +49,18 @@ function connexionBDD(): object
     return $pdo;
 }
 
+#### Création de la base de données
+#### ETAPE 1
+function creationBaseDeDonnees(): void
+{
+    $pdo = connexionBDD();
+    $sql = "CREATE DATABASE IF NOT EXISTS " . DB_NOM;
+    $pdo->exec($sql);
+}
+// creationBaseDeDonnees(); // Décommenter pour créer la base de données lors du chargement de la page
+
+#### ETAPE 2
+#### Création de la table advert
 function creationTableAdvert(): void{
     $pdo = connexionBDD();
     $sql = "CREATE TABLE IF NOT EXISTS advert (
@@ -68,7 +80,38 @@ function creationTableAdvert(): void{
         )";
     $pdo->exec($sql);
 }
-// creationTableAdvert();
+// creationTableAdvert(); // Décommenter pour créer la table lors du chargement de la page
+
+#### ETAPE 3
+#### Fonction d'insertion de 20 annonces avec 17 réservations = NULL
+function insertionAnnonces(): void
+{
+    $pdo = connexionBDD();
+    $sql = "INSERT INTO advert (photo, title, description, postal_code, city, type, price, reservation_message, type_immobilier, surface, nombre_chambre, nombre_salle_bain) 
+            VALUES 
+            ('photo1.jpg', 'Titre 1', ' 1', '75001', 'Paris', 'location', 1000.00, NULL, 'appartement', 50.00, 2, 1),
+            ('photo2.jpg', 'Titre 2', ' 2', '75002', 'Paris', 'vente', 200000.00, NULL, 'maison', 100.00, 3, 2),
+            ('photo3.jpg', 'Titre 3', ' 3', '75003', 'Paris', 'location', 1500.00, NULL, 'terrain', 200.00, 4, 3),
+            ('photo4.jpg', 'Titre 4', ' 4', '75004', 'Paris', 'vente', 250000.00, NULL, 'appartement', 75.00, 2, 1),
+            ('photo5.jpg', 'Titre 5', ' 5', '75005', 'Paris', 'location', 1200.00, NULL, 'maison', 80.00, 3, 2),
+            ('photo6.jpg', 'Titre 6', ' 6', '75006', 'Paris', 'vente', 300000.00, NULL, 'terrain', 150.00, 4, 3),
+            ('photo7.jpg', 'Titre 7', ' 7', '75007', 'Paris', 'location', 1300.00, NULL, 'appartement', 60.00, 2, 1),
+            ('photo8.jpg', 'Titre 8', ' 8', '75008', 'Paris', 'vente', 350000.00, NULL, 'maison', 90.00, 3, 2),
+            ('photo9.jpg', 'Titre 9', ' 9', '75009', 'Paris','location' ,1400.00 ,NULL ,'terrain' ,170.00 ,4 ,3),
+            ('photo10.jpg', 'Titre 10', ' 10', '75010', 'Paris', 'vente', 400000.00, NULL, 'appartement', 85.00, 2, 1),
+            ('photo11.jpg', 'Titre 11', ' 11', '75011', 'Paris', 'location', 1100.00, NULL, 'maison', 95.00, 3, 2),
+            ('photo12.jpg', 'Titre 12', ' 12', '75012', 'Paris', 'vente', 450000.00, NULL, 'terrain', 160.00, 4, 3),
+            ('photo13.jpg', 'Titre 13', ' 13', '75013', 'Paris','location' ,1150.00 ,NULL ,'appartement' ,70.00 ,2 ,1),
+            ('photo14.jpg', 'Titre 14', ' 14', '75014', 'Paris','vente' ,500000.00 ,NULL ,'maison' ,110.00 ,3 ,2),
+            ('photo15.jpg', 'Titre 15', ' 15', '75015', 'Paris','location' ,1250.00 ,NULL ,'terrain' ,180.00 ,4 ,3),
+            ('photo16.jpg', 'Titre 16', ' 16', '75016','Paris' ,'vente' ,550000.00 ,NULL ,'appartement' ,90.00 ,2 ,1),
+            ('photo17.jpg', 'Titre 17', ' 17','75017' ,'Paris' ,'location' ,1350.00 ,NULL ,'maison' ,100.00 ,3 ,2),
+            ('photo18.jpg','Titre 18',' 18','75018','Paris','vente' ,600000.00,NULL,'terrain' ,190.00,4,3),
+            ('photo19.jpg','Titre 19',' 19','75019','Paris','location' ,1450.00,NULL,'appartement' ,80.00,2,1),
+            ('photo20.jpg','Titre 20',' 20','75020','Paris','vente' ,650000.00,NULL,'maison' ,120.00,3,2)";
+    $pdo->exec($sql);
+}
+// insertionAnnonces(); // Décommenter pour insérer les annonces lors du chargement de la page
 
 // Ajouter une annonce
 function ajouterUneAnnonce(string $photo, string $titre, string $description, string $code_postal, string $ville, string $type, float $prix, $reservation_message ,string $type_immobilier, int $surface, int $nombre_chambre, int $nombre_salle_bain): void{
