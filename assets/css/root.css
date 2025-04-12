@@ -1,25 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root{
+:root {
     --text-primary: #a131ca;
-    --text-black:#121212;
+    --text-black: #121212;
     --text-grey: #999;
     --text-white: #fff;
 
-    --bg-primary:#a131ca;
-    --bg-white:#fff;
-    --bg-opacity:#a131ca3d;
+    --bg-primary: #a131ca;
+    --bg-white: #fff;
+    --bg-opacity: #a131ca3d;
     --bg-dark: #2f0040;
+    --bg-disabled: #999;
+
+    --alert-danger: rgb(255, 109, 109);
+    --alert-warning: rgb(255, 255, 125);
+    --alert-success: rgb(40, 208, 118);
 }
 
 .bouton-primary,
 .bouton-secondary,
-.bouton-outline{
+.bouton-outline,
+.disabled {
     color: var(--text-white);
     background-color: var(--bg-primary);
     font-size: 1rem;
@@ -31,21 +38,30 @@
     text-decoration: none;
     text-transform: capitalize;
     transition: all .3s ease-in-out;
+    cursor: pointer;
 }
-.bouton-secondary{
+
+.disabled {
+    color: var(--text-white);
+    background-color: var(--bg-disabled);
+}
+
+.bouton-secondary {
     background-color: var(--bg-dark);
 }
-.bouton-outline{
+
+.bouton-outline {
     color: var(--text-black);
     background-color: transparent;
     border: 1px solid var(--bg-primary);
 }
-.bouton-outline:hover{
+
+.bouton-outline:hover {
     color: var(--text-white);
     background-color: var(--bg-primary);
 }
 
-h1{
+h1 {
     font-size: 4rem;
     font-weight: 900;
     line-height: 1.2;
@@ -53,7 +69,8 @@ h1{
     text-transform: capitalize;
     font-family: 'Heebo', sans-serif;
 }
-h2{
+
+h2 {
     font-size: 3rem;
     font-weight: 900;
     line-height: 1.2;
@@ -61,10 +78,12 @@ h2{
     text-transform: capitalize;
     font-family: 'Heebo', sans-serif;
 }
-span{
+
+span {
     color: var(--text-black);
 }
-p{
+
+p {
     letter-spacing: .1rem;
     font-size: .9rem;
     color: var(--text-grey);
@@ -72,7 +91,14 @@ p{
     transition: all .2s ease-in-out;
 }
 
-body{
+label {
+    line-height: 1.2;
+    font-size: 1rem;
+    color: var(--text-black);
+    transition: all .2s ease-in-out;
+}
+
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -81,7 +107,7 @@ body{
     font-family: 'Inter';
 }
 
-.section-primary{
+.section-primary {
     background-color: var(--bg-white);
     width: 87%;
     display: flex;
@@ -89,7 +115,8 @@ body{
     align-items: center;
     padding-top: 50px;
 }
-.section-primary nav{
+
+.section-primary nav {
     position: sticky;
     width: 95%;
     top: -1px;
@@ -107,20 +134,23 @@ body{
     will-change: width;
 }
 
-.section-primary nav:hover{
+.section-primary nav:hover {
     /* border-bottom: 5px solid var(--bg-primary); */
     scale: 96% 100%;
 }
 
-nav ul{
+nav ul {
+    /* width: 100%; */
     list-style-type: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 3%;
+    align-items: center;
+    gap: 1rem;
 }
+
 nav .navigation,
-nav .logo{
+nav .logo {
     text-transform: uppercase;
     color: var(--text-black);
     text-decoration: none;
@@ -130,12 +160,16 @@ nav .logo{
     transition: all .5s ease-in-out;
 }
 
-nav .logo{
+nav .navigation {
+    padding: .6rem 1rem;
+}
+
+nav .logo {
     display: flex;
     justify-content: center;
     text-transform: capitalize;
     align-items: center;
-    gap:.5rem;
+    gap: .5rem;
     color: var(--text-primary);
     font-weight: 900;
     font-size: 2.3rem;
@@ -144,7 +178,7 @@ nav .logo{
     transition: all .5s ease-in-out;
 }
 
-nav img{
+nav img {
     filter: hue-rotate(90deg);
     border-radius: 30px;
     border: 1px dashed #31cab0;
@@ -153,9 +187,46 @@ nav img{
     height: 48px;
 }
 
-nav .navigation:hover{
+nav .navigation:hover {
     color: var(--text-white);
     background-color: var(--bg-primary);
     border-radius: 5px;
-    padding: .6rem 1rem;
+}
+
+.alert-warning,
+.alert-danger,
+.alert-success {
+    width: fit-content;
+    padding: 1rem .5rem;
+    margin: .5rem;
+    text-align: center;
+    border-radius: .5rem;
+
+    i,
+    p.alert {
+        color: var(--text-white);
+    }
+}
+
+.alert-warning {
+    color: var(--text-black);
+    background-color: var(--alert-warning);
+    border: 2px solid var(--bg-opacity);
+
+    i,
+    p.alert {
+        color: var(--text-black);
+    }
+}
+
+.alert-danger {
+    color: var(--text-black);
+    background-color: var(--alert-danger);
+    border: 2px solid var(--bg-opacity);
+}
+
+.alert-success {
+    color: var(--text-white);
+    background-color: var(--alert-success);
+    border: 2px solid var(--bg-opacity);
 }
